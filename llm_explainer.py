@@ -180,14 +180,14 @@ st.markdown("""
     min-height: 600px;
 }
 
-.step-header {
-    font-size: 2rem;
-    font-weight: 600;
-    color: #2c3e50;
-    margin-bottom: 1.5rem;
-    padding-bottom: 10px;
-    border-bottom: 3px solid #667eea;
-}
+    .step-header {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #3366cc;
+        margin-bottom: 1.5rem;
+        padding-bottom: 10px;
+        border-bottom: 3px solid #3366cc;
+    }
 
 .token-pill {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -369,7 +369,7 @@ def create_flowchart():
                 use_container_width=True,
                 type="primary" if is_active else "secondary"
             )
-            st.markdown(f'<style>div[data-testid="stButton"] button {{white-space:normal;word-break:break-word;min-width:110px;max-width:170px;min-height:44px;font-size:1.05rem;line-height:1.2;}}</style>', unsafe_allow_html=True)
+            st.markdown(f'<style>div[data-testid="stButton"] button {{white-space:normal;word-break:break-word;min-width:115px;max-width:175px;min-height:44px;font-size:1.05rem;line-height:1.2;}}</style>', unsafe_allow_html=True)
             if btn:
                 st.session_state.current_step = step['id']
                 st.rerun()
