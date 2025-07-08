@@ -670,6 +670,10 @@ def complete_sentence(model, tokenizer, input_text, max_length=30):
     if first_period != -1:
         completion = completion[:first_period+1]
 
+    # Calculate total words in the completed sentence (input + completion)
+    total_sentence = (input_text + ' ' + completion).strip()
+    total_words = len(total_sentence.split())
+
     st.markdown("**Completed Sentence:**")
     completed_html = f'{input_text}<span class="highlight-completion">{completion}</span>'
     st.markdown(f'<div class="generated-text">{completed_html}</div>', unsafe_allow_html=True)
@@ -681,7 +685,7 @@ def complete_sentence(model, tokenizer, input_text, max_length=30):
     with col2:
         st.markdown(f'<div class="metric-card"><div class="metric-value">{len(tokenizer.encode(completion))}</div><div class="metric-label">Tokens Added</div></div>', unsafe_allow_html=True)
     with col3:
-        st.markdown(f'<div class="metric-card"><div class="metric-value">{len(complete_text.split())}</div><div class="metric-label">Total Words</div></div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="metric-card"><div class="metric-value">{total_words}</div><div class="metric-label">Total Words</div></div>', unsafe_allow_html=True)
     
     st.markdown('<div class="insight-box">The model uses the same process (tokenization → embeddings → attention → prediction) iteratively to generate each new token, building context as it goes.</div>', unsafe_allow_html=True)
     
