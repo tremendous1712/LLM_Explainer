@@ -308,7 +308,7 @@ def load_model():
     with st.spinner("Loading model... Please wait"):
         tokenizer = AutoTokenizer.from_pretrained("gpt2-medium")
         model = AutoModelForCausalLM.from_pretrained(
-            "gpt2",
+            "gpt2-medium",
             output_attentions=True,
             output_hidden_states=True,
             torch_dtype=torch.float32,
